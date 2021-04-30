@@ -1,0 +1,52 @@
+{
+  "name": "enlight/pingping",
+  "description": "Easy PingPing API Connector for Laravel",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "laravel",
+    "pingping",
+    "website-status"
+  ],
+  "authors": [
+    {
+      "name": "Bhushan Gaykawad",
+      "email": "bhushangaykawad@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.5",
+    "laravel/framework": ">=7.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^5.3",
+    "phpunit/phpunit": "^9.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Enlight\\PingPing\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Enlight\\PingPing\\Providers\\PingPingServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "tests": "vendor/bin/phpunit"
+  }
+}
