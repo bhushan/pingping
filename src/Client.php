@@ -12,6 +12,9 @@ use Enlight\PingPing\Exceptions\TokenRequiredException;
 use Enlight\PingPing\Exceptions\ValidUrlRequiredException;
 use Enlight\PingPing\Exceptions\MonitorIDRequiredException;
 
+
+
+
 class Client
 {
     use HasFake;
