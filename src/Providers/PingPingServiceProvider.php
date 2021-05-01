@@ -16,15 +16,15 @@ class PingPingServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../../config/ping-ping.php', 'ping-ping');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/pingping.php', 'pingping');
 
         $this->app->singleton(Client::class, function () {
             return new Client(
-                config('ping-ping.uri'),
-                config('ping-ping.token'),
-                config('ping-ping.timeout'),
-                config('ping-ping.retry_times'),
-                config('ping-ping.retry_milliseconds')
+                config('pingping.uri'),
+                config('pingping.token'),
+                config('pingping.timeout'),
+                config('pingping.retry_times'),
+                config('pingping.retry_milliseconds')
             );
         });
     }
@@ -38,7 +38,7 @@ class PingPingServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../../config/ping-ping.php' => config_path('ping-ping.php'),
+                __DIR__ . '/../../config/pingping.php' => config_path('pingping.php'),
             ], 'config');
         }
     }

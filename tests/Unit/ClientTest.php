@@ -13,7 +13,7 @@ class ClientTest extends TestCase
     /** @test */
     public function api_token_is_required()
     {
-        config(['ping-ping.token' => null]);
+        config(['pingping.token' => null]);
 
         $this->expectException(TokenRequiredException::class);
 

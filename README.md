@@ -49,7 +49,7 @@ To Publish Configuration Run
 php artisan vendor:publish --provider="Enlight\PingPing\Providers\PingPingServiceProvider" --tag="config"
 ```
 
-Exported config you can find in `/config` folder as `ping-ping.php`.
+Exported config you can find in `/config` folder as `pingping.php`.
 
 ## Usage
 
