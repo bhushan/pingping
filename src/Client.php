@@ -122,7 +122,7 @@ class Client
             throw new MonitorIDRequiredException();
         }
 
-        if ($url === '') {
+        if ($url === '' || ! $this->validateUrl($url)) {
             throw new ValidUrlRequiredException();
         }
 
@@ -179,15 +179,11 @@ class Client
     /**
      * Validate that an attribute is a valid URL.
      *
-     * @param mixed $value
+     * @param string $value
      * @return bool
      */
-    private function validateUrl($value): bool
+    private function validateUrl(string $value): bool
     {
-        if (! is_string($value)) {
-            return false;
-        }
-
         /*
          * This pattern is derived from Symfony\Component\Validator\Constraints\UrlValidator (5.0.7).
          *
