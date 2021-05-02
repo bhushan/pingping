@@ -1,13 +1,9 @@
 name: Check and fix code styling with php-cs-fixer
 
-on:
-  pull_request:
-  push:
-    branches:
-      - master
+on: [ pull_request, push ]
 
 jobs:
-  style:
+  php-cs-fixer:
     runs-on: ubuntu-latest
 
     steps:
