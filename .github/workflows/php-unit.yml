@@ -13,10 +13,10 @@ jobs:
       fail-fast: true
       matrix:
         php: [ 7.3, 8.0 ]
-        laravel: [ 7.*, 8.* ]
+        testbench: [ 5.3, 6.15 ]
         dependency-version: [ prefer-lowest, prefer-stable ]
 
-    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
+    name: PHP ${{ matrix.php }} - Orchestra Testbench ${{ matrix.testbench }}
 
     steps:
       - name: Checkout code
@@ -31,7 +31,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+          composer require "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       - name: Execute Tests
