@@ -14,9 +14,9 @@ jobs:
       matrix:
         php: [ 7.3 ]
         testbench: [ 5.3, 6.15 ]
-        dependency-version: [ prefer-lowest, prefer-stable ]
+        dependency-version: [ prefer-stable ]
 
-    name: PHP ${{ matrix.php }} - Orchestra Testbench ${{ matrix.testbench }}
+    name: PHP ${{ matrix.php }} - Testbench ${{ matrix.testbench }}
 
     steps:
       - name: Checkout code
