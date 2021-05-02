@@ -7,16 +7,16 @@ on:
       - master
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
+  php-unit:
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
-        os: [ ubuntu-latest ]
         php: [ 7.3 ]
-        laravel: [ 7.*, 8.* ]
+        testbench: [ 5.3, 6.15 ]
+        dependency-version: [ prefer-stable ]
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.os }}
+    name: PHP ${{ matrix.php }} - Testbench ${{ matrix.testbench }}
 
     steps:
       - name: Checkout code
@@ -30,7 +30,9 @@ jobs:
           coverage: none
 
       - name: Install Dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+        run: |
+          composer require "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
-      - name: Execute tests
+      - name: Execute Tests
         run: vendor/bin/phpunit
